@@ -44,7 +44,7 @@ Live link [here]()
 
 
 ## Screenshot
-<img src="./assets/images/screenshot.png">
+<img src="">
 
 
 

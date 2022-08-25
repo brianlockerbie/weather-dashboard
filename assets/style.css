@@ -1,0 +1,14 @@
+.section-title {
+    padding-bottom: 15px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#forecast-cards {
+    justify-content: space-arouund;
+}
+.card-content {
+    margin: 30px;
+}
