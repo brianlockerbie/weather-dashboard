@@ -8,7 +8,36 @@ var previousCityEl = document.getElementById('search-container');
 var fiveDayEl = document.querySelector('#forecast-cards');
 var currentUvEl = document.querySelector("#uv-input")
 
-var storedCity = [];
+var cityArray = [];
+
+// search city form submission 
+var formSubmitHandler = function(event) {
+    event.preventDefault();
+
+    var city = cityInputEl.value.trim();
+
+    if (city) {
+        getCityWeather(city);
+        getForecast(city);
+
+        cityArray.push(city);
+        localStorage.setItem("city", JSON.stringify(cityArray));
+
+        cityInputEl.value = "";
+
+     } else {
+        alert("Please enter a City name");
+    }
+};
+
+// // clicking on previous searched city
+var clickHandler = function (event) {
+
+    var clickCity = event.currentTarget.textContent;
+
+    getCityWeather(clickCity);
+    getForecast(clickCity);
+};
 
 
 var getCityWeather = function(city) {
@@ -74,6 +103,12 @@ var displayCityWeather = function(city, searchTerm) {
     var displayWind = document.querySelector("#wind-input");
     var currentWind = city.wind.speed + " MPH";
     displayWind.textContent = currentWind;
+
+    var newCityEl = document.createElement("li");
+    newCityEl.className = "list-group-item";
+    newCityEl.textContent = searchTerm;
+    newCityEl.addEventListener("click", clickHandler);
+    previousCityEl.appendChild(newCityEl);
 
     // lon = city.coord.lon; 
     // lat = city.coord.lat;
@@ -176,71 +211,41 @@ var displayForecast = function (list) {
 
 }; 
 
-var saveCitySearch = function (city) {
-    var cityEl = document.createElement("li");
-    cityEl.innerText = city;
-    cityEl.classList = "list-group-item";
-    previousCityEl.appendChild(cityEl);
+// var saveCitySearch = function (city) {
+//     var cityEl = document.createElement("li");
+//     cityEl.innerText = city;
+//     cityEl.classList = "list-group-item";
+//     previousCityEl.appendChild(cityEl);
 
-    storedCity.push(city);
+//     cityArray.push(city);
 
-    localStorage.setItem("city", json.stringify(storedCity));
-}
+//     localStorage.setItem("city", JSON.stringify(cityArray));
+// }
 
 // //  get items in local storage
-var loadCity = function () {
-    var storedCityName = localStorage.getItem('city');
+// var loadCity = function () {
+//     var storedCityName = localStorage.getItem('city');
 
-    if(!storedCityName) {
-        return false; 
-    };
+//     if(!storedCityName) {
+//         return false; 
+//     };
 
-    storedCity = json.parse(storedCityName);
+//     storedCity = json.parse(storedCityName);
 
-    for (i = 0; i < storedCity.length; i++) {
-        var cityEl = document.createElement("li")
-        cityEl.innerText = storedCity[i];
-        cityEl.classList = "list-group-item";
-        previousCityEl.appendChild(cityEl);
+//     for (i = 0; i < cityArray.length; i++) {
+//         var cityEl = document.createElement("li")
+//         cityEl.innerText = storedCity[i];
+//         cityEl.classList = "list-group-item";
+//         previousCityEl.appendChild(cityEl);
 
-    }
-};
+//     }
+// };
 
-var formSubmitHandler = function(event) {
-    event.preventDefault();
 
-    var city = cityInputEl.value.trim();
 
-    if (city) {
-        getCityWeather(city);
-        getForecast(city);
-        cityInputEl.value = "";
-     } else {
-        alert("Please enter a City name");
-    }
-};
+    
 
-var historyHandler = function (event) {
-    event.preventDefault();
-
-    var city = even.target.innerHTML;
-    localStorage.getItem(city);
-
-    getCityWeather(city);
-    getForecast(city);
-};
-
-previousCityEl.addEventListener("click", historyHandler);
+// previousCityEl.addEventListener("click", clickHandler);
  
-// 5 day forecast
-
-var displayForecast = function () {
-    fiveDayEl.textContent = '';
-}
-
-var historyArray = function () {
-    cityArray = json.parse(localStorage.getItem("previousCity"));
-    displayHistory();
-};
 
 userFormEl.addEventListener("submit", formSubmitHandler);
