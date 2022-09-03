@@ -34,7 +34,7 @@ WHEN I click on a city in the search history<br>
 THEN I am again presented with current and future conditions for that city
  
 ## Screenshot
-<img src="">
+<img src="./assets/images/weather-dashboard.png">
 
 
 ## License
