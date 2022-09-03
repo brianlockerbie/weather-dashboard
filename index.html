@@ -25,8 +25,9 @@
                     <input name="city-input" id="city-input" type="text" autofocus="true" class="form-input" />
                     <button type="submit" class="btn btn-primary"><span class="oi oi-magnifying-glass"></span></button>
                 </form>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"></li>  
+                <ul class="list-group" id="search-container">
+                  <li class="list-group-item"></li>
+                </ul>
           </div>
       </div>
     
@@ -35,7 +36,7 @@
                 <div class="current-weather">
                     <h2 class="subtitle"><span id="city-search-term">Search for a city to view weather</span>
                         <span id="city-current-date"></span>
-                        <span id="city-current-icon"></span>
+                        <img id="city-current-icon"></img>
                     </h2>
                     <div id="city-container" class="list-group"></div>
                     </div>
@@ -60,7 +61,7 @@
         <div class="row" id="forecast-cards">
             <div class="card col-2 bg-primary text-white" id="day-1">
                 <p class="card-1" id="date-0">Date</p>
-                <p class="card-1" id="img-0">Image</p>
+                <img id="city-icon-1"></img>
                 <p class="card-1" id="temp-0">Temp:</p>
                 <p class="card-1" id="humidity-0">Humidity:</p>
             </div>
@@ -68,28 +69,28 @@
 
             <div class="card col-2 bg-primary text-white" id="day-2">
                 <p class="card-3" id="date-1">Date</p>
-                <p class="card-3" id="img-1">Image</p>
+                <img id="city-icon-2"></img>
                 <p class="card-3" id="temp-1">Temp:</p>
                 <p class="card-3" id="humidity-1">Humidity:</p>
             </div>
 
             <div class="card col-2 bg-primary text-white" id="day-3">
                 <p class="card-2" id="date-2">Date</p>
-                <p class="card-2" id="img-2">Image</p>
+                <img id="city-icon-3"></img>
                 <p class="card-2" id="temp-2">Temp:</p>
                 <p class="card-2" id="humidity-2">Humidity:</p>
             </div>
 
             <div class="card col-2 bg-primary text-white" id="day-4">
                 <p class="card-4" id="date-3">Date</p>
-                <p class="card-4" id="img-3">Image</p>
+                <img id="city-icon-4"></img>
                 <p class="card-4" id="temp-3">Temp:</p>
                 <p class="card-4" id="humidity-3">Humidity:</p>
             </div>
 
             <div class="card col-2 bg-primary text-white" id="day-5">
                 <p class="card-5" id="date-4">Date</p>
-                <p class="card-5" id="img-4">Image</p>
+                <img id="city-icon-5"></img>
                 <p class="card-5" id="temp-4">Temp:</p>
                 <p class="card-5" id="humidity-4">Humidity:</p>
             </div>
