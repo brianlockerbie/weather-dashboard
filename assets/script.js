@@ -1,7 +1,9 @@
-var key = "7ec51d8adfb8894a3e41d376a38b7c34";
+var key = "abac380e681891208a53b3f353781f71";
 
-var searchButton = document.querySelector("#user-form");
+var userFormEl = document.querySelector("#user-form");
 var cityInputEl = document.querySelector('#city-input');
+var cityContainerEl = document.querySelector("#city-container");
+var citySearchTerm = document.querySelector("#city-search-term");
 var currentWeather = document.querySelector('#current-weather');
 
 var previousCityEl = document.getElementById('search-container');
@@ -41,7 +43,7 @@ var clickHandler = function (event) {
 
 
 var getCityWeather = function(city) {
-    var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + key;
+    var apiURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + key;
 
 
     fetch(apiURL).then(function(response) {
@@ -57,13 +59,11 @@ var getCityWeather = function(city) {
     .catch(function(error) {
         alert("Unable to connect to Open Weather");
     })
-};
+}
 
  
 var searchCityUV = function(lon, lat, city) {
     var uvUrl = "http://api.openweathermap.org/data/2.5/uvi?q=" + city + "&appid=" + key + "&lat=" + lat + "&lon=" + lon;
-    
-
     fetch(uvUrl).then(function(response) {
         if (response.ok) {
             response.json().then(function(lon, lat, city) {
@@ -135,7 +135,7 @@ var displayCurrentUv = function(data) {
 };
 
 var getForecast = function(city) {
-    var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&cnt=6&appid=" + key;
+    var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&cnt=6&appid=" + key;
 
 
     fetch(forecastURL).then(function(response) {
@@ -157,7 +157,6 @@ var displayForecast = function (list) {
     console.log(list);
 
     for (var i = 0; i <= 4; i++) {
-        console.log(i);
 
         var displayDate1 = document.querySelector("#date-0");
         var forecastDate1 = moment().add(1, "days").format("L");
@@ -211,41 +210,11 @@ var displayForecast = function (list) {
 
 }; 
 
-// var saveCitySearch = function (city) {
-//     var cityEl = document.createElement("li");
-//     cityEl.innerText = city;
-//     cityEl.classList = "list-group-item";
-//     previousCityEl.appendChild(cityEl);
 
 //     cityArray.push(city);
 
-//     localStorage.setItem("city", JSON.stringify(cityArray));
-// }
-
-// //  get items in local storage
-// var loadCity = function () {
-//     var storedCityName = localStorage.getItem('city');
-
-//     if(!storedCityName) {
-//         return false; 
-//     };
-
-//     storedCity = json.parse(storedCityName);
-
-//     for (i = 0; i < cityArray.length; i++) {
-//         var cityEl = document.createElement("li")
-//         cityEl.innerText = storedCity[i];
-//         cityEl.classList = "list-group-item";
-//         previousCityEl.appendChild(cityEl);
-
-//     }
+//  
 // };
-
-
-
-    
-
-// previousCityEl.addEventListener("click", clickHandler);
  
 
 userFormEl.addEventListener("submit", formSubmitHandler);

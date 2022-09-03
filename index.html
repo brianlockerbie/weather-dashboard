@@ -2,34 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
 </head>
 
-<body class="flex-column min-100-vh">
-  <header class="hero">
+<body>
+  <!-- <header class="hero">
     <h1 class="section-title bg-dark text-white text-center">Weather Dashboard</h1>
-  </header>
+  </header> -->
 
-<div class="container-fluid">
+<div class="weather-container container">
         <div class="row">
-            <div class="col-4">
-                <div class="card">
+            <div class="col-4 col-xs-12">
+                <div class="card bg-light>
                 <h3 class="search">Search for a city:</h3>
                 <form id="user-form" class="card-body">
                     <label class="form-label" for="city"></label>
-                    <input name="city-input" id="city-input" type="text" autofocus="true" class="form-input" />
-                    <button type="submit" class="btn btn-primary"><span class="oi oi-magnifying-glass"></span></button>
+                    <input name="city-input" size="30" id="city-input" type="text" autofocus="true" class="form-input" />
+                    <button type="submit" class="btn btn-primary btn-md">Search</button>
                 </form>
                 <ul class="list-group" id="search-container"></ul>
           </div>
       </div>
     
-          <div class="col-7">
+          <div class="col-8">
             <div class="card">
                 <div class="current-weather">
                     <h2 class="subtitle"><span id="city-search-term">Search for a city to view weather</span>
@@ -66,17 +66,17 @@
 
 
             <div class="card col-2 bg-primary text-white" id="day-2">
-                <p class="card-3" id="date-1">Date</p>
+                <p class="card-2" id="date-1">Date</p>
                 <img id="city-icon-2"></img>
-                <p class="card-3" id="temp-1">Temp:</p>
-                <p class="card-3" id="humidity-1">Humidity:</p>
+                <p class="card-2" id="temp-1">Temp:</p>
+                <p class="card-2" id="humidity-1">Humidity:</p>
             </div>
 
             <div class="card col-2 bg-primary text-white" id="day-3">
-                <p class="card-2" id="date-2">Date</p>
+                <p class="card-3" id="date-2">Date</p>
                 <img id="city-icon-3"></img>
-                <p class="card-2" id="temp-2">Temp:</p>
-                <p class="card-2" id="humidity-2">Humidity:</p>
+                <p class="card-3" id="temp-2">Temp:</p>
+                <p class="card-3" id="humidity-2">Humidity:</p>
             </div>
 
             <div class="card col-2 bg-primary text-white" id="day-4">
