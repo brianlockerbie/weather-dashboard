@@ -41,3 +41,11 @@ ul {
     border-radius: 10px;
     opacity: 80%;
 }
+
+.card {
+    background-color: rgba(111, 22, 193, 0.8);
+}
+
+.btn {
+    background-color: rgba(111, 22, 193, 0.8);
+}
