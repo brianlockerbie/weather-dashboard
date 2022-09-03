@@ -13,7 +13,7 @@ This application uses server-side API and JavaScript to create a weather dashboa
 This does not require installation.
 
 ## Usage
-Live link [here](). This application allows users to search for weather information. The user will be able to view daily weather and a 5-day forecast for the city that is searched. The user will also be able to click on previous search to display the same information.
+Live link [here](https://brianlockerbie.github.io/weather-dashboard). This application allows users to search for weather information. The user will be able to view daily weather and a 5-day forecast for the city that is searched. The user will also be able to click on previous search to display the same information.
 
 ## User Story
 AS A traveler<br>
