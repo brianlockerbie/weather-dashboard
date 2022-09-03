@@ -1,3 +1,5 @@
+var key = "7ec51d8adfb8894a3e41d376a38b7c34";
+
 var searchButton = document.querySelector("#user-form");
 var cityInputEl = document.querySelector('#city-input');
 var currentWeather = document.querySelector('#current-weather');
@@ -9,14 +11,14 @@ var currentCity = "";
 var cityArray = [];
 var getWeatherCityObj = [];
 
-var getCityWeather = function(weather) {
-    var apiURL = "https://api.openweathermap.org/data/2.5/onecall?q=" + cityName + "lat={lat}&lon={lon}&appid=7ec51d8adfb8894a3e41d376a38b7c34";
+var getCityWeather = function(city) {
+    var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + key;
 
 
     fetch(apiURL).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                displayWeather(data, weather);
+                displayCityWeather(data, city);
             });
         } else {
             alert("Error:" + response.statusText);
@@ -26,22 +28,32 @@ var getCityWeather = function(weather) {
     .catch(function(error) {
         alert("Unable to connect to Open Weather");
     })
-}
+};
 
  
-var searchCity = function (event) {
+var formSubmitHandler = function (event) {
     event.preventDefault();
 
     var cityName = cityInputEl.value.trim();
-    console.log(cityName);
+    
 
     if (cityName) {
-        getCityName(cityName);
-        cityInputEl = "";
+        getCityWeather(cityName);
+        cityInputEl.value = "";
     } else {
-        alert("Please enter a City name")
+        alert("Enter a city name please");
     }
-}
+};
+
+var displayCityWeather = function(city, searchTerm) {
+    var displayCurrentDate = document.querySelector("#city-current-date");
+    var currentDate = moment();
+    displayCurrentDate.textContent = currentDate.format("(MMMM Do YYYY)");
+
+
+    cityContainerEl.textContent = '';
+    citySearchTerm.textContent = searchTerm;
+};
 
  
 // 5 day forecast
@@ -55,22 +67,4 @@ var historyArray = function () {
     displayHistory();
 };
 
-var displayHistory = function () {
-    lastSearchEl.innerHTML = "";
-
-    for (var i=0; i < cityArray.length; i++) {
-        var cityList = document.createElement("li");
-        cityList.classList = "list-group-item";
-        cityList.textContent = cityArray[i].cityName; 
-    }
-}; 
-
-var historyClick = function (event) {
-    event.preventDefault();
-
-
-}
-
-lastSearchEl.addEventListener("click", historyClick);
-
-searchButton.addEventListener("submit", searchCity); 
+userFormEl.addEventListener("submit", formSubmitHandler);
