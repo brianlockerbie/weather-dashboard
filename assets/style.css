@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 body {
-    background: url('https://www.pixelstalk.net/wp-content/uploads/2016/07/Download-Free-Weather-Background.jpg'); 
+    background-image: url('https://source.unsplash.com/1600x900/?landscape'); 
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'Oswald', sans-serif;
+    overflow: hidden;
+    height: 100vh;
 }
 
 .section-title {
@@ -43,9 +47,9 @@ ul {
 }
 
 .card {
-    background-color: rgba(111, 22, 193, 0.8);
+    background-color: black;
 }
 
 .btn {
-    background-color: rgba(111, 22, 193, 0.8);
+    background-color: black;
 }
